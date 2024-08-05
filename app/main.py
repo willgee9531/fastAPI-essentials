@@ -1,3 +1,4 @@
+import uvicorn
 from fastapi import FastAPI
 from fastapi.params import Body
 # from random import randrange
@@ -33,3 +34,6 @@ app.include_router(auth.router)
 @app.get("/", tags=["Home"])
 def root():
     return {"message": "Hello, i love FastAPI!"}
+
+if __name__ == "__main__":
+    uvicorn.run("main:app", reload=True, log_level="debug", debug=True)
